@@ -1,0 +1,30 @@
+<div class="container-fluid signup">
+    <div class="header">
+        <h5 class="header-text noselect">Human Adaptive Interactive Learning System</h5>
+    </div>
+    <div class="body">
+        <form class="form-signin" (ngSubmit)="onLogin()" [formGroup]="loginForm">
+
+            <!-- logo -->
+            <img src="./assets/testIcon.PNG" class="img-responsive logo">
+            <!-- <img src="./assets/images/title_logo_svg.svg" class="img-responsive title"> -->
+
+            <!-- form input -->
+            <div class="form-group">
+                <h6 class="input-label input-labels-text noselect">username</h6>
+                <input autocomplete formControlName="username" name="username" type="text" class="form-control" placeholder="username" required autofocus minlength="2" maxlength="20">
+            </div>
+
+            <div class="row top-buffer"></div>
+
+            <div class="row">
+                <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+                <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 no-padding">
+                    <button class="btn btn-block grey-btn" [disabled]="clicked" type="submit">Login</button>
+                </div>
+                <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+            </div>
+        </form>
+    </div>
+
+</div>

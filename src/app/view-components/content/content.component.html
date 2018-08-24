@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row contentHeader">
+        <div class="row col-lg-12 col-md-12 col-xs-12">
+            <h2 class="heading">{{subHeading}}</h2>
+        </div>
+    </div>
+    <div class="row contentBody">
+        <div class="col-lg-1 col-md-1 col-xs-1 contentBody">
+        </div>
+        <div class="col-lg-10 col-md-10 col-xs-10 contentBody">
+            <p class="learningContent">{{sectionContent}}</p>
+        </div>
+
+        <div class="col-lg-1 col-md-1 col-xs-1 contentBody">
+        </div>
+
+    </div>
+    <div class="row contentFooter">
+        <div class="row col-lg-12 col-md-12 col-xs-12">
+            <div class="div">
+                <nav aria-label="...">
+                    <ul class="pager">
+                        <li (click)="previousPage()"><a> Previous</a></li>
+                        <li (click)="nextPage()"><a>Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

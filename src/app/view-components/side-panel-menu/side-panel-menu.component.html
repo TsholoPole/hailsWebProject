@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="body bookContent">
+
+        <ul class="list-group">
+            <!-- <li class="list-group-item chapter" (click)="activeChapter()" *ngFor="let chapter of chapterList">{{chapter.name}} -->
+            <li class="list-group-item chapter">{{chapterOne}}</li>
+            <ul class="list-group">
+                <li id="section" class="list-group-item sectionOne" (click)="activeSection(i)" [ngClass]="{itemSelected:selectedIndex == i, 'list-group-item':true}" *ngFor="let section of chapterOneSections; let i = index">{{section.name}}
+                    <hr class="division">
+                </li>
+            </ul>
+            <!-- </li> -->
+            <li class="list-group-item chapter">{{chapterTwo}}</li>
+            <ul class="list-group">
+                <li id="section" class="list-group-item sectionTwo" (click)="activeSectionTwo(section.name)" [ngClass]="{itemSelected:selectedIndex == i, 'list-group-item':true}" *ngFor="let section of chapterTwoSections;  let i = index">{{section.name}}
+                    <hr class="division">
+                </li>
+
+            </ul>
+            <li class="list-group-item chapter">{{chapterThree}}</li>
+            <ul class="list-group">
+                <li id="section" class="list-group-item sectionThree" (click)="activeSectionThree(section.name)" [ngClass]="{itemSelected:selectedIndex == i, 'list-group-item':true}" *ngFor="let section of chapterThreeSections;  let i = index">{{section.name}}
+                    <hr class="division">
+                </li>
+            </ul>
+            <li class="list-group-item chapter">{{glossary}}</li>
+        </ul>
+    </div>
+
+</div>

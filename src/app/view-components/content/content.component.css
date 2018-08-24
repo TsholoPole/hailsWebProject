@@ -1,0 +1,24 @@
+.contentHeader {
+    margin-top: 10px;
+    background-color: red;
+    align-content: center;
+    height: 15vh;
+}
+
+.contentBody {
+    background-color: darkgray;
+    height: 50vh;
+}
+
+.contentFooter {
+    background-color: darkblue;
+    height: 25%;
+}
+
+.heading {
+    text-align: center;
+}
+
+.learningContent {
+    padding-top: 20px;
+}

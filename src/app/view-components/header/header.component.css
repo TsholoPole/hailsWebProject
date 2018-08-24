@@ -1,0 +1,130 @@
+.logo-image {
+    width: 150px;
+    height: 100px;
+    padding: 10px 20px;
+    border-width: 0px;
+    /* margin-top: 5px; */
+}
+
+.header {
+    background-color: #8b8b8b;
+    height: 13vh;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.header-text-username,
+.header-username {
+    margin-top: 25px;
+    width: 50%;
+    height: 25%;
+}
+
+.logo-image-title {
+    padding: 10px;
+    border-width: 0px;
+    margin-top: 10px;
+}
+
+.header-title {
+    font-size: 38px;
+    margin: 20px 0px;
+    text-align: center;
+    height: 15vh;
+}
+
+.header-text {
+    margin-top: 15px;
+}
+
+.header-btn {
+    margin-top: 25px;
+    width: 50%;
+    height: 25%;
+    color: rgb(56, 54, 54);
+    color: black;
+    cursor: pointer;
+}
+
+.header-btn:hover {
+    color: white;
+    background-color: #2e2d2d
+}
+
+@media only screen and (max-width: 1000px) {
+    .logo-image {
+        padding: 5px 0px;
+        max-width: 85%;
+    }
+    .logo-image-title {
+        padding: 10px;
+        border-width: 0px;
+        margin-top: 10px;
+    }
+    .header {
+        background-color: #8b8b8b;
+        height: 13vh;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .header-text-username,
+    .header-username {
+        margin-top: 25px;
+        width: 30%;
+        height: 25%;
+    }
+}
+
+@media only screen and (max-width: 1340px) {
+    .header-title {
+        font-size: 30px;
+    }
+    .logo-image-title {
+        padding: 10px;
+        border-width: 0px;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 1075px) {
+    .header-title {
+        font-size: 26px;
+        margin: 0px 10px;
+    }
+    .logo-image-title {
+        padding: 10px;
+        border-width: 0px;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .logo-image {
+        max-width: 10vw;
+        margin: 0px;
+        padding: 1px;
+    }
+    .logo-image-title {
+        padding: 10px;
+        border-width: 0px;
+        margin-top: 10px;
+    }
+    .header {
+        background-color: #8b8b8b;
+        height: 10vh;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .header-text-username,
+    .header-username {
+        margin-top: 25px;
+        width: 20%;
+        height: 25%;
+    }
+}
