@@ -38,7 +38,7 @@ chapterThreeSections = [{name: "Classes"},{name:"Composition"},{name: "Aggregati
   {
     this.selectedIndex = selected;
 
-    alert("Clicked: " + selected+1);
+    alert("Clicked: " + selected);
     this.selected = true;
 
 
@@ -71,6 +71,7 @@ chapterThreeSections = [{name: "Classes"},{name:"Composition"},{name: "Aggregati
 
     this.router.navigate(['/content']);
   }
+
   activeSectionThree(selected: any)
   {
     this.selectedIndex = selected;

@@ -4,6 +4,7 @@ import { HeaderUsernameService } from '../../services/header-information-service
 import { ContentProviderService } from '../../services/content-services/content-provider.service';
 import { ProvideContentRequest } from '../../models/request.models/provideContentRequest.model';
 import { Response } from '@angular/http';
+import { ChapterOneSectionOneContent } from './chapter-one-section-one-content';
 
 @Component({
   selector: 'app-content',
@@ -19,6 +20,8 @@ export class ContentComponent implements OnInit {
   currentContent = new ContentModel();
   index: number = 0;
 
+  chapterOneSectionOne = new ChapterOneSectionOneContent();
+
   viewContentFromServer : ContentModel[] = [];
 
   resultListLength = 0;
@@ -27,58 +30,12 @@ export class ContentComponent implements OnInit {
      private contentProviderService: ContentProviderService) { }
 
   ngOnInit() {
-    this.currentContent.mainHeading = "Testing main heading";
-    this.currentContent.subHeading = "Introduction to C++";
-    this.currentContent.description = "In this chapter, you will learn the basic elements and concepts of the C++" +
-    " programming language to create C++ programs. In addition to giving examples to illustrate various"+
-    " concepts, we will also show C++ programs to clarify them. In this section, we provide an" +
-    " example of a C++ program. At this point, you need not be too concerned with the " +
-    " details of this program. You only need to know the effect of an output statement, which is " +
-   " introduced in this program.";
-
-   this.populateContent();
+    
+    this.currentContent = this.chapterOneSectionOne.currentContent;
+    this.populateContent();
   
   }
 
-  mapContent()
-  {
-   let provideContentRequest : ProvideContentRequest = new ProvideContentRequest();
-
-
-    this.contentProviderService.getLearningSectionContent(provideContentRequest)
-    .subscribe(
-      (response: Response) => {
-        const data = response.json();
-        console.log(data);
-        
-        //map content from server to the content being displayed on the view
-        if(data != undefined && data.content != null)
-        {
-          this.resultListLength = data.content.length;
-
-          if(this.resultListLength >= 1)
-          {
-            data.content.forEach(content => {
-              let contentModel = new ContentModel();
-              contentModel.chapterIdentifier = content.chapterIdentifier;
-              contentModel.description = content.description;
-              contentModel.mainHeading = content.mainHeading;
-              contentModel.sectionIdentifier = content.sectionIdentifier;
-              contentModel.subHeading = content.subHeading;
-
-              this.viewContentFromServer.push(contentModel);
-
-            });
-           
-          }
-        }
-
-      },
-      (error)=> {
-        //handle errors form server
-      }
-    )
-  }
 
   getContentLength():number
   {
@@ -89,7 +46,7 @@ export class ContentComponent implements OnInit {
   {
     for(let index =0; index < 5; index++)
     {
-      this.sectionContentList.push(this.currentContent);
+      this.sectionContentList.push( this.currentContent );
     }
 
     this.displayCurrentContent(this.sectionContentList[0]);
@@ -97,6 +54,7 @@ export class ContentComponent implements OnInit {
 
   displayCurrentContent(currentContentModel:ContentModel)
   {
+    console.log(this.currentContent);
     //map current content to the view
     this.headerUsernameService.changeHeaderSection(currentContentModel.mainHeading);
     this.subHeading =  currentContentModel.subHeading;
