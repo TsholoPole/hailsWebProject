@@ -29,7 +29,7 @@ chapterTwoSections = [{name: "Continuation", value:1},{name:"What we have learne
 
 chapterThreeSections = [{name: "Classes"},{name:"Composition"},{name: "Aggregation"}]
 
-  constructor(private router: Router, private contentProviderMapper:ContentProviderMapper) { }
+  constructor(private router: Router, /*private contentProviderMapper:ContentProviderMapper*/) { }
 
   ngOnInit() {
   }
@@ -48,7 +48,7 @@ chapterThreeSections = [{name: "Classes"},{name:"Composition"},{name: "Aggregati
     provideContentRequest.sectionIdentifier = selected+1;
     // provideContentRequest.chapterIdentifier = 
 
-    this.contentProviderMapper.onUpdateContentList(provideContentRequest);
+    // this.contentProviderMapper.onUpdateContentList(provideContentRequest);
     //compare three arrays content to get which chapter the section belongs to
     // let ContentModel = new ContentModel();
 

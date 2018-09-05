@@ -4,7 +4,7 @@ import { HeaderUsernameService } from '../../services/header-information-service
 import { ContentProviderService } from '../../services/content-services/content-provider.service';
 import { ProvideContentRequest } from '../../models/request.models/provideContentRequest.model';
 import { Response } from '@angular/http';
-import { ChapterOneSectionOneContent } from './chapter-one-section-one-content';
+import { ChapterOneSectionContentProviderService } from './chapter-one-section-provider.service';
 
 @Component({
   selector: 'app-content',
@@ -14,47 +14,53 @@ import { ChapterOneSectionOneContent } from './chapter-one-section-one-content';
 
 export class ContentComponent implements OnInit {
 
-  sectionContentList : ContentModel[] = [];
-  subHeading:string = "";
-  sectionContent : string = "";
+  chapterOneSectionOneContent : ContentModel[] = [];
+  
   currentContent = new ContentModel();
   index: number = 0;
+  subHeading : any = "";
+  sectionContent : any = "";
 
-  chapterOneSectionOne = new ChapterOneSectionOneContent();
 
-  viewContentFromServer : ContentModel[] = [];
+  // viewContentFromServer : ContentModel[];
 
   resultListLength = 0;
 
   constructor(private headerUsernameService:HeaderUsernameService,
-     private contentProviderService: ContentProviderService) { }
+    private chapterOneSectionContentProviderService:ChapterOneSectionContentProviderService) { }
 
   ngOnInit() {
     
-    this.currentContent = this.chapterOneSectionOne.currentContent;
-    this.populateContent();
+    this.chapterOneSectionContentProviderService.getChapterOneContent().subscribe(
+      content =>{
+        console.log("\n\nContent from db",content,"\n\n");
+        this.chapterOneSectionOneContent = content;
+        console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
+      }
+    );
+    
+    setTimeout(() => {
+      this.populateContent();
+    }, 5000); 
   
   }
 
 
   getContentLength():number
   {
-    return this.sectionContentList.length;
+    return this.chapterOneSectionOneContent.length;
   }
 
   populateContent()
   {
-    for(let index =0; index < 5; index++)
-    {
-      this.sectionContentList.push( this.currentContent );
-    }
-
-    this.displayCurrentContent(this.sectionContentList[0]);
+    console.log("\n\nContent in display current content",this.chapterOneSectionOneContent,"\n\n");
+   
+    this.displayCurrentContent(this.chapterOneSectionOneContent[0]);
   }
 
   displayCurrentContent(currentContentModel:ContentModel)
   {
-    console.log(this.currentContent);
+    console.log("\n\nCurrent content",currentContentModel,"\n\n");
     //map current content to the view
     this.headerUsernameService.changeHeaderSection(currentContentModel.mainHeading);
     this.subHeading =  currentContentModel.subHeading;
@@ -66,18 +72,44 @@ export class ContentComponent implements OnInit {
   
     alert("Next");
     //always assume user starts at index 0
-    if(this.index <= (this.sectionContentList.length -1))
+    if(this.index <= (this.chapterOneSectionOneContent.length -1))
     {
       this.index = this.index + 1;
-      this.displayCurrentContent(this.sectionContentList[this.index]);
+      this.displayCurrentContent(this.chapterOneSectionOneContent[this.index]);
     }
     else
     {//add code to send new request to get next section content
       alert("End of list");
-      this.displayCurrentContent(this.sectionContentList[this.index]);
+      this.getChapterOneSectionTwoData();
+      // this.displayCurrentContent(this.chapterOneSectionOneContent[this.index]);
     }
     
   }
+
+  getChapterOneSectionTwoData()
+  {
+    this.chapterOneSectionContentProviderService.getChapterOneSectionTwoContent().subscribe(
+      content =>{
+        console.log("\n\nContent from db",content,"\n\n");
+        this.chapterOneSectionOneContent = content;
+        console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
+      }
+    );
+    this.populateContent();
+  }
+
+  getChapterOneSectionThreeData()
+  {
+    this.chapterOneSectionContentProviderService.getChapterOneSectionThreeContent().subscribe(
+      content =>{
+        console.log("\n\nContent from db",content,"\n\n");
+        this.chapterOneSectionOneContent = content;
+        console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
+      }
+    );
+    this.populateContent();
+  }
+
 
   previousPage()
   {
@@ -86,11 +118,11 @@ export class ContentComponent implements OnInit {
     if(!(this.index <= 0))
     {
       this.index = this.index - 1;
-      this.displayCurrentContent(this.sectionContentList[this.index]);
+      this.displayCurrentContent(this.chapterOneSectionOneContent[this.index]);
     }
     else{
       alert("start of list");
-      this.displayCurrentContent(this.sectionContentList[this.index]);
+      this.displayCurrentContent(this.chapterOneSectionOneContent[this.index]);
     }
     
   }
