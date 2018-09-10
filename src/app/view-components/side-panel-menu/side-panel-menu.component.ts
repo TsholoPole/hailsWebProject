@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ContentModel } from '../../models/content.models/content.model';
 import { ContentProviderMapper } from '../../services/content-services/content-provider-apper.service';
 import { ProvideContentRequest } from '../../models/request.models/provideContentRequest.model';
+import { ContentComponent } from '../content/content.component';
 
 @Component({
   selector: 'app-side-panel-menu',
@@ -11,79 +12,63 @@ import { ProvideContentRequest } from '../../models/request.models/provideConten
 })
 export class SidePanelMenuComponentComponent implements OnInit {
 
-  selectedIndex : number;
-  chapterOne = "Chapter 1";
-  chapterTwo = "Chapter 2";
-  chapterThree = "Chapter 3";
-  glossary = "Glossary";
+  selectedIndex: number;
+  chapterOne = 'Chapter 1: BASIC ELEMENTS OF C++';
+  chapterTwo = 'Chapter 2: Data Types';
+  chapterThree = 'Chapter 3: Arithmetic Operators and Operator Precedence';
+  glossary = 'Glossary';
 
-  chapterList = [{name: "Chapter 1"},
-{name: "Chapter 2"}, {name: "Chapter 3"},
-{name: "Glossary"}];
+  chapterList = [{name: this.chapterOne},
+{name: this.chapterTwo}, {name: this.chapterThree},
+{name: this.glossary}];
 
 selected = false;
 
+chapterOneSections = [{name: 'A C++ Program', value: 1}, {name: 'The Basics of a C++ Program', value: 2}, {name: 'Identifiers', value: 3}];
+// tslint:disable-next-line:max-line-length
+chapterTwoSections = [{name: 'Introduction', value: 1}, {name: 'Simple Data Types', value: 2}, {name: 'Floating Point Data Types', value: 3} ];
 
-chapterOneSections = [{name: "Introduction", value:1},{name:"Variables", value:2},{name: "Examples", value:3}]
-chapterTwoSections = [{name: "Continuation", value:1},{name:"What we have learned so far", value:2},{name: "Functions", value:3}]
+chapterThreeSections = [{name: 'Arithmetic Operators'}, {name: 'Examples'}, {name: 'Order of Precedence'}];
 
-chapterThreeSections = [{name: "Classes"},{name:"Composition"},{name: "Aggregation"}]
-
-  constructor(private router: Router, /*private contentProviderMapper:ContentProviderMapper*/) { }
+  constructor(private router: Router, private contentComponent: ContentComponent) { }
 
   ngOnInit() {
   }
 
-  activeSection(selected: any)
-  {
+  activeSection(selected: any) {
     this.selectedIndex = selected;
 
-    alert("Clicked: " + selected);
+    alert('Clicked: ' + selected);
     this.selected = true;
 
 
-//create request model to send request to get related content
+    this.contentComponent.createContentForDisplay(1, (selected + 1));
+    setTimeout(() => {
+      this.router.navigate(['/content']);
+    }, 1500);
+    alert('Go to chapter 1');
 
-    let provideContentRequest = new ProvideContentRequest();
-    provideContentRequest.sectionIdentifier = selected+1;
-    // provideContentRequest.chapterIdentifier = 
-
-    // this.contentProviderMapper.onUpdateContentList(provideContentRequest);
-    //compare three arrays content to get which chapter the section belongs to
-    // let ContentModel = new ContentModel();
-
-    // ContentModel.sectionIdentifier = selected;
-
-    // description : string;
-    // sectionIdentifier: Number;
-    // chapterIdentifier: Number;
-    // mainHeading: string;
-    // subHeading: string;
-
-    this.router.navigate(['/content']);
+    // this.router.navigate(['/content']);
   }
-  activeSectionTwo(selected: any)
-  {
+  activeSectionTwo(selected: any) {
     this.selectedIndex = selected;
 
-    alert("Clikced: " + selected);
+    alert('Clikced: ' + selected);
     this.selected = true;
 
     this.router.navigate(['/content']);
   }
 
-  activeSectionThree(selected: any)
-  {
+  activeSectionThree(selected: any)  {
     this.selectedIndex = selected;
 
-    alert("Clikced: " + selected);
+    alert('Clikced: ' + selected);
     this.selected = true;
 
     this.router.navigate(['/content']);
   }
 
-  activeChapter()
-  {
+  activeChapter() {
 
   }
 

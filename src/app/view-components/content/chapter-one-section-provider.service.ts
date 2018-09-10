@@ -12,16 +12,16 @@ export class ChapterOneSectionContentProviderService
     private contentUrl = 'api/chapterOneSectionOneContent';  // URL to web api
     private chapterOneSectiontwoUrl = 'api/chapterOneSectionTwoContent';
     private chapterOneSectionThreeUrl = 'api/chapterOneSectionThreeContent';
-  
+
     constructor(private http: HttpClient) { }
-    
+
     getChapterOneContent(): Observable<ContentModel[]>
     {
         return this.http.get<ContentModel[]>(this.contentUrl);
-        
+
     }
 
-    getChapterOneSectionTwoContent():Observable<ContentModel[]>
+    getChapterOneSectionTwoContent(): Observable<ContentModel[]>
     {
         return this.http.get<ContentModel[]>(this.chapterOneSectiontwoUrl);
     }

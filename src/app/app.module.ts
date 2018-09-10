@@ -35,12 +35,11 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
     IntroductionPageContentComponent,
     LearningContentComponent,
     ContentComponent,
-     
   ],
   imports: [
     RouterModule.forRoot(
       AppRoutes,
-      {enableTracing: true}//debugging
+      {enableTracing: true}// debugging
     ),
     HttpClientInMemoryWebApiModule.forRoot(
       ChapterOneSectionOneService, { dataEncapsulation: false }
@@ -52,9 +51,9 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
     HttpModule,
     HttpClientModule
   ],
-  providers: [HeaderUsernameService, 
+  providers: [HeaderUsernameService,
     CreateContentService,
-
+    ContentComponent,
     ContentProviderService,
     ChapterOneSectionContentProviderService
   ],

@@ -1,7 +1,7 @@
 .learningSections {
     background-color: rgb(92, 126, 143);
     height: 100%;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .header {

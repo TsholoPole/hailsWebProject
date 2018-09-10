@@ -1,7 +1,7 @@
 .chapter {
     background-color: rgb(92, 126, 143);
-    font-family: Hind Light;
-    font-size: 2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17pt;
     padding: 2px;
     text-decoration: none;
     color: black;
@@ -13,16 +13,14 @@
 
 .sectionOne {
     background-color: rgb(92, 126, 143);
-    font-family: Hind Light;
-    font-size: 1.7em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15pt;
     padding: 2px;
     text-decoration: none;
     color: black;
     list-style: none;
     border: 0;
-    /* margin-left: 15px; */
     border: 2px black;
-    /* font-weight: bold; */
 }
 
 .sectionTwo {
@@ -34,9 +32,7 @@
     color: black;
     list-style: none;
     border: 0;
-    /* margin-left: 15px; */
     border: 2px black;
-    /* font-weight: bold; */
 }
 
 .sectionThree {
@@ -48,15 +44,13 @@
     color: black;
     list-style: none;
     border: 0;
-    /* margin-left: 15px; */
     border: 2px black;
-    /* font-weight: bold; */
+
 }
 
 .division {
     margin-top: 0;
     margin-bottom: 0;
-    /* color: rgb(79, 96, 117); */
 }
 
 .itemSelected {

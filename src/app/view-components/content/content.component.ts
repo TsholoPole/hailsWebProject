@@ -14,117 +14,155 @@ import { ChapterOneSectionContentProviderService } from './chapter-one-section-p
 
 export class ContentComponent implements OnInit {
 
-  chapterOneSectionOneContent : ContentModel[] = [];
-  
+  chapterOneSectionOneContent: ContentModel[] = [];
   currentContent = new ContentModel();
-  index: number = 0;
-  subHeading : any = "";
-  sectionContent : any = "";
+  index = 0;
+  subHeading = '';
+  sectionContent  = '';
 
 
   // viewContentFromServer : ContentModel[];
 
   resultListLength = 0;
 
-  constructor(private headerUsernameService:HeaderUsernameService,
-    private chapterOneSectionContentProviderService:ChapterOneSectionContentProviderService) { }
+  constructor(private headerUsernameService: HeaderUsernameService,
+    private chapterOneSectionContentProviderService: ChapterOneSectionContentProviderService) { }
 
   ngOnInit() {
-    
-    this.chapterOneSectionContentProviderService.getChapterOneContent().subscribe(
-      content =>{
-        console.log("\n\nContent from db",content,"\n\n");
-        this.chapterOneSectionOneContent = content;
-        console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
-      }
-    );
-    
+    // this.chapterOneSectionContentProviderService.getChapterOneContent().subscribe(
+    //   content => {
+    //     // console.log("\n\nContent from db",content,"\n\n");
+    //     this.chapterOneSectionOneContent = content;
+    //     // console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
+    //   }
+    // );
+
+    // this.
     setTimeout(() => {
       this.populateContent();
-    }, 5000); 
-  
+    }, 5000);
+
   }
 
 
-  getContentLength():number
-  {
+  createContentForDisplay(chap: number, section: number) {
+   switch (chap) {
+    case 1:
+      switch (section) {
+        case 1:
+        this.chapterOneSectionContentProviderService.getChapterOneContent().subscribe(
+          content => {
+            this.chapterOneSectionOneContent = content;
+          }
+        );
+        break;
+        case 2:
+        this.chapterOneSectionContentProviderService.getChapterOneSectionTwoContent().subscribe(
+          content => {
+            this.chapterOneSectionOneContent = content;
+          }
+        );
+        break;
+        case 3:
+        this.chapterOneSectionContentProviderService.getChapterOneSectionThreeContent().subscribe(
+          content => {
+            this.chapterOneSectionOneContent = content;
+          }
+        );
+      }
+
+      break;
+    case 2:
+      switch (section) {
+        case 1:
+        break;
+
+        case 2:
+        break;
+
+        case 3:
+      }
+
+      break;
+    case 3:
+      switch (section) {
+        case 1:
+        break;
+
+        case 2:
+        break;
+
+        case 3:
+      }
+
+   }
+  }
+  getContentLength(): number {
     return this.chapterOneSectionOneContent.length;
   }
 
-  populateContent()
-  {
-    console.log("\n\nContent in display current content",this.chapterOneSectionOneContent,"\n\n");
-   
+  populateContent() {
+    // console.log("\n\nContent in display current content",this.chapterOneSectionOneContent,"\n\n");
     this.displayCurrentContent(this.chapterOneSectionOneContent[0]);
   }
 
-  displayCurrentContent(currentContentModel:ContentModel)
-  {
-    console.log("\n\nCurrent content",currentContentModel,"\n\n");
-    //map current content to the view
+  displayCurrentContent(currentContentModel: ContentModel) {
+    // console.log("\n\nCurrent content",currentContentModel,"\n\n");
+    // map current content to the view
     this.headerUsernameService.changeHeaderSection(currentContentModel.mainHeading);
     this.subHeading =  currentContentModel.subHeading;
     this.sectionContent = currentContentModel.description;
   }
 
-  nextPage()
-  {
-  
-    alert("Next");
-    //always assume user starts at index 0
-    if(this.index <= (this.chapterOneSectionOneContent.length -1))
-    {
+  nextPage() {
+
+    alert('Next');
+    // always assume user starts at index 0
+    if (this.index <= (this.chapterOneSectionOneContent.length - 1)) {
       this.index = this.index + 1;
       this.displayCurrentContent(this.chapterOneSectionOneContent[this.index]);
-    }
-    else
-    {//add code to send new request to get next section content
-      alert("End of list");
+    } else {
+      // add code to send new request to get next section content
+      alert('End of list');
       this.getChapterOneSectionTwoData();
       // this.displayCurrentContent(this.chapterOneSectionOneContent[this.index]);
     }
-    
   }
 
-  getChapterOneSectionTwoData()
-  {
+  getChapterOneSectionTwoData() {
     this.chapterOneSectionContentProviderService.getChapterOneSectionTwoContent().subscribe(
-      content =>{
-        console.log("\n\nContent from db",content,"\n\n");
+      content => {
+        // console.log("\n\nContent from db",content,"\n\n");
         this.chapterOneSectionOneContent = content;
-        console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
+        // console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
       }
     );
     this.populateContent();
   }
 
-  getChapterOneSectionThreeData()
-  {
+  getChapterOneSectionThreeData() {
     this.chapterOneSectionContentProviderService.getChapterOneSectionThreeContent().subscribe(
-      content =>{
-        console.log("\n\nContent from db",content,"\n\n");
+      content => {
+        // console.log("\n\nContent from db",content,"\n\n");
         this.chapterOneSectionOneContent = content;
-        console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
+        // console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
       }
     );
     this.populateContent();
   }
 
 
-  previousPage()
-  {
-    alert("Previous");
-    //whatever index user is coming from
-    if(!(this.index <= 0))
-    {
+  previousPage() {
+    alert('Previous');
+    // whatever index user is coming from
+    if (!(this.index <= 0)) {
       this.index = this.index - 1;
       this.displayCurrentContent(this.chapterOneSectionOneContent[this.index]);
-    }
-    else{
-      alert("start of list");
+    } else {
+      alert('start of list');
       this.displayCurrentContent(this.chapterOneSectionOneContent[this.index]);
     }
-    
+
   }
 
 }

@@ -1,40 +1,67 @@
-    .one {
-        background-color: darkgreen;
-        height: 30%;
-    }
-    
-    .two {
-        background-color: gray;
-        height: 30%;
-    }
-    
-    .three {
-        background-color: green;
-        height: 30%;
-    }
-    
-    .extraSections {
-        align-content: flex-end;
-        width: 45%;
-        margin-top: 50px;
-        height: 80%;
-        margin-left: 28%;
-        margin-right: 0;
-    }
-    
-    .image {
-        margin-left: 8%;
-        /* padding-bottom: 15%; */
-        /* padding-top: 15%; */
-        /* height: 70vh;*/
-        height: 60%;
-        /* background-color: aquamarine; */
-    }
-    
-    .mainImage {
-        padding-right: 90px;
-        width: 1100px;
-        height: 395px;
-        margin-top: 0;
-        padding-top: 10px;
-    }
+.one {
+  background-color: rgb(199, 211, 238);
+
+  height: 35%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.two {
+  background-color: rgb(165, 171, 184);
+  height: 35%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.three {
+  background-color: rgb(139, 141, 139);
+  height: 35%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.three:hover,
+.one:hover,
+.two:hover{
+
+  background-color: rgba(199, 199, 199, 0.7);
+}
+
+.extraSections {
+  align-content: flex-end;
+  width: 50%;
+  margin-top: 30px;
+  height: 80%;
+  margin-left: 23%;
+  margin-right: 0;
+
+}
+
+.image {
+  margin-left: 8%;
+  /* padding-bottom: 15%; */
+  /* padding-top: 15%; */
+  /* height: 70vh;*/
+  height: 60%;
+  /* background-color: aquamarine; */
+}
+
+.mainImage {
+  padding-right: 90px;
+  width: 1100px;
+  height: 395px;
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+.shortcut-heading {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15pt;
+  padding: 5px;
+}
+
+.shortcut-content {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 8pt;
+  padding: 5px;
+}

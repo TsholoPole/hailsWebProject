@@ -1,17 +1,17 @@
 .contentHeader {
     margin-top: 10px;
-    background-color: red;
+    background-color: rgba(117, 126, 155, 0.24);
     align-content: center;
     height: 15vh;
 }
 
 .contentBody {
-    background-color: darkgray;
+    background-color: rgba(243, 242, 242, 0.281);
     height: 50vh;
 }
 
 .contentFooter {
-    background-color: darkblue;
+    background-color: rgba(117, 126, 155, 0.24);
     height: 25%;
 }
 
@@ -21,4 +21,8 @@
 
 .learningContent {
     padding-top: 20px;
+}
+
+.pager{
+  cursor: pointer;
 }
