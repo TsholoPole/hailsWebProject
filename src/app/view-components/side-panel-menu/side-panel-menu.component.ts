@@ -22,10 +22,9 @@ export class SidePanelMenuComponentComponent implements OnInit {
 {name: this.chapterTwo}, {name: this.chapterThree},
 {name: this.glossary}];
 
-selected = false;
+// selected = false;
 
 chapterOneSections = [{name: 'A C++ Program', value: 1}, {name: 'The Basics of a C++ Program', value: 2}, {name: 'Identifiers', value: 3}];
-// tslint:disable-next-line:max-line-length
 chapterTwoSections = [{name: 'Introduction', value: 1}, {name: 'Simple Data Types', value: 2}, {name: 'Floating Point Data Types', value: 3} ];
 
 chapterThreeSections = [{name: 'Arithmetic Operators'}, {name: 'Examples'}, {name: 'Order of Precedence'}];
@@ -36,34 +35,39 @@ chapterThreeSections = [{name: 'Arithmetic Operators'}, {name: 'Examples'}, {nam
   }
 
   activeSection(selected: any) {
-    this.selectedIndex = selected;
+
+    const tempIndex = selected + 1;
 
     alert('Clicked: ' + selected);
-    this.selected = true;
+    // this.selected = true;
 
-
-    this.contentComponent.createContentForDisplay(1, (selected + 1));
-    setTimeout(() => {
+    this.contentComponent.createContentForDisplay(1, (tempIndex));
+    // setTimeout(() => {
       this.router.navigate(['/content']);
-    }, 1500);
+    // }, 1500);
     alert('Go to chapter 1');
 
     // this.router.navigate(['/content']);
   }
+
   activeSectionTwo(selected: any) {
     this.selectedIndex = selected;
 
-    alert('Clikced: ' + selected);
-    this.selected = true;
-
-    this.router.navigate(['/content']);
+    alert('Clikced: ' + selected+1);
+    // this.selected = true;
+    this.contentComponent.createContentForDisplay(1, (selected + 1));
+    // setTimeout(() => {
+      this.router.navigate(['/content']);
+    // }, 1500);
+    alert('Go to chapter 2');
+    // this.router.navigate(['/content']);
   }
 
   activeSectionThree(selected: any)  {
     this.selectedIndex = selected;
 
     alert('Clikced: ' + selected);
-    this.selected = true;
+    // this.selected = true;
 
     this.router.navigate(['/content']);
   }

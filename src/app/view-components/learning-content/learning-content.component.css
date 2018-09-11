@@ -1,6 +1,8 @@
 .learningSections {
     background-color: rgb(92, 126, 143);
     height: 100%;
+    margin-right: 0px;
+    padding-right: 0px;
     /* overflow: scroll; */
 }
 

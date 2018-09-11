@@ -22,9 +22,22 @@
     padding-left: 15px;
 }
 
+.app-name{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 48pt;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+  padding-top:0px;
+}
+
 .logo {
+  width: 200px;
+  height: 200px;
     max-width: 75%;
     margin: 0 auto;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .title {

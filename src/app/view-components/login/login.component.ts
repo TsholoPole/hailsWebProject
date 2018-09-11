@@ -11,6 +11,7 @@ import { HeaderUsernameService } from '../../services/header-information-service
 export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
+  clicked : boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router,  private headerService: HeaderUsernameService) { }
 
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(){
-    
+
     if (this.loginForm.valid) {
       this.headerService.changeUserName(this.loginForm.get("username").value.trim());
       this.router.navigate(['/introduction']);

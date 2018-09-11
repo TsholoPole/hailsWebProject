@@ -40,12 +40,13 @@ export class ContentComponent implements OnInit {
     // this.
     setTimeout(() => {
       this.populateContent();
-    }, 5000);
+    }, 1000);
 
   }
 
 
   createContentForDisplay(chap: number, section: number) {
+    console.log("Chap: ", chap, "Section: ",section);
    switch (chap) {
     case 1:
       switch (section) {
@@ -102,12 +103,12 @@ export class ContentComponent implements OnInit {
   }
 
   populateContent() {
-    // console.log("\n\nContent in display current content",this.chapterOneSectionOneContent,"\n\n");
+    console.log("\n\nContent in display current content",this.chapterOneSectionOneContent,"\n\n");
     this.displayCurrentContent(this.chapterOneSectionOneContent[0]);
   }
 
   displayCurrentContent(currentContentModel: ContentModel) {
-    // console.log("\n\nCurrent content",currentContentModel,"\n\n");
+    console.log("\n\nCurrent content",currentContentModel,"\n\n");
     // map current content to the view
     this.headerUsernameService.changeHeaderSection(currentContentModel.mainHeading);
     this.subHeading =  currentContentModel.subHeading;

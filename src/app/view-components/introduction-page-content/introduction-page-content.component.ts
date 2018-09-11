@@ -16,26 +16,32 @@ export class IntroductionPageContentComponent implements OnInit {
   }
 
   goToChapterOne() {
+    console.log("\n\nCalling function to load chapter one data\n\n");
     this.contentComponent.createContentForDisplay(1, 1);
-    setTimeout(() => {
-      this.router.navigate(['/content']);
-    }, 1500);
+    this.router.navigate(['/content']);
+    // setTimeout(() => {
+
+    // }, 1500);
     alert('Go to chapter 1');
   }
 
   goToChapterTwo() {
+    console.log("\n\nCalling function to load chapter one data\n\n");
     this.contentComponent.createContentForDisplay(2, 1);
-    setTimeout(() => {
-      this.router.navigate(['/content']);
-    }, 1500);
+    this.router.navigate(['/content']);
+    // setTimeout(() => {
+    //   this.router.navigate(['/content']);
+    // }, 1500);
     alert('Go to chapter 2');
   }
 
   goToChapterThree() {
+    console.log("\n\nCalling function to load chapter one data\n\n");
     this.contentComponent.createContentForDisplay(3, 1);
-    setTimeout(() => {
-      this.router.navigate(['/content']);
-    }, 1500);
+    this.router.navigate(['/content']);
+    // setTimeout(() => {
+    //   this.router.navigate(['/content']);
+    // }, 1500);
     alert('Go to chapter 3');
   }
 
