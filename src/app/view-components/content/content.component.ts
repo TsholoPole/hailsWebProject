@@ -29,18 +29,18 @@ export class ContentComponent implements OnInit {
     private chapterOneSectionContentProviderService: ChapterOneSectionContentProviderService) { }
 
   ngOnInit() {
-    // this.chapterOneSectionContentProviderService.getChapterOneContent().subscribe(
-    //   content => {
-    //     // console.log("\n\nContent from db",content,"\n\n");
-    //     this.chapterOneSectionOneContent = content;
-    //     // console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
-    //   }
-    // );
+    this.chapterOneSectionContentProviderService.getChapterOneContent().subscribe(
+      content => {
+        // console.log("\n\nContent from db",content,"\n\n");
+        this.chapterOneSectionOneContent = content;
+        // console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
+      }
+    );
 
     // this.
     setTimeout(() => {
       this.populateContent();
-    }, 1000);
+    }, 2000);
 
   }
 
@@ -49,11 +49,16 @@ export class ContentComponent implements OnInit {
     console.log("Chap: ", chap, "Section: ",section);
    switch (chap) {
     case 1:
+    console.log("\n\nChapter is 1\n\n")
       switch (section) {
         case 1:
+        console.log("\n\nSection is 1\n\n")
         this.chapterOneSectionContentProviderService.getChapterOneContent().subscribe(
           content => {
+            console.log("\n\nContent from chap 1, section 1", content,"\n\n")
             this.chapterOneSectionOneContent = content;
+            console.log("\n\nContent after switch statement one",  this.chapterOneSectionOneContent,"\n\n")
+
           }
         );
         break;
@@ -96,7 +101,16 @@ export class ContentComponent implements OnInit {
         case 3:
       }
 
+      default:
+        this.chapterOneSectionContentProviderService.getChapterOneSectionTwoContent().subscribe(
+          content => {
+            this.chapterOneSectionOneContent = content;
+          }
+        );
+
    }
+   console.log("\n\nContent after switch statement",  this.chapterOneSectionOneContent,"\n\n")
+
   }
   getContentLength(): number {
     return this.chapterOneSectionOneContent.length;
