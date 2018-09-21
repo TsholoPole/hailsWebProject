@@ -1,9 +1,10 @@
 .logo-image {
-    width: 150px;
-    height: 100px;
-    padding: 10px 20px;
-    border-width: 0px;
-    /* margin-top: 5px; */
+  width: 90px;
+  height: 85px;
+  margin-top: 7px;
+  cursor: pointer;
+  /* padding: 10px 20px; */
+  /* border-width: 0px; */
 }
 
 .header {

@@ -24,6 +24,7 @@ import { ChapterOneSectionOneService } from './view-components/content/chapter-o
 import { ChapterOneSectionContentProviderService } from './view-components/content/chapter-one-section-provider.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { ActiveSectionService } from './view-components/side-panel-menu/services/active-section.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
     CreateContentService,
     ContentComponent,
     ContentProviderService,
-    ChapterOneSectionContentProviderService
+    ChapterOneSectionContentProviderService,
+    ActiveSectionService
   ],
   bootstrap: [AppComponent]
 })

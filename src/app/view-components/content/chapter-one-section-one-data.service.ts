@@ -15,9 +15,7 @@ export class ChapterOneSectionOneService implements InMemoryDbService {
             'language to create C++ programs. In addition to giving examples to illustrate various concepts, we will also' +
              'show C++ programs to clarify them. In this section, we provide an example of a C++ program. At this point, you ' +
              'need not be too concerned with the details of this program. You only need to know the effect of an output statement,' +
-             ' which is introduced in this program.<br/><br/> <b> #include <iostream> <br/> using namespace std; <br/>int main() {' +
-             ' &emsp;int num = 6; <br/>&emsp;cout \<\< \"My first C++ program.\" \<\< endl; <br/>&emsp;cout \<\< \"The sum of 2 and 3 = \" \<\< 5 \<\< endl;' +
-             ' <br/>&emsp;cout \<\< \"7 + 8 = \" \<\< 7 + 8 << endl; <br/>&emsp;cout \<\< \"Num = \" \<\< num \<\< endl;<br \/> &emsp;return 0; <br/>}</b>'
+             ' which is introduced in this program.<br/><br/>  <img class="exampleOne" src="../assets/images/content/exampleOne.PNG" alt="Main page image" height="300px" width="600px">'
         },
         {
             sectionIdentifier: 1,
@@ -39,7 +37,8 @@ export class ChapterOneSectionOneService implements InMemoryDbService {
             subHeading : 'C++ Program',
             description : 'Let us now consider the following statement. <b>cout << \"7 + 8 = \" << 7 + 8 << endl;</b>. In this output statement, the expression \"7 + 8 = \", which is a string, evaluates to itself. Let us consider the second expression, 7 + 8. This expression consists of the numbers 7 and 8 and the C++ arithmetic operator +. ' +
             'Therefore, the result of the expression 7 + 8 is the sum of 7 and 8, which is 15. Thus, the output of the preceding statement is: 7 + 8 = 15 This statement consists of the string \"Num = \", which evaluates to itself, and the word num. The statement num = 6; assigns the value 6 to num. ' +
-            'Therefore, the expression num, after the second <<, evaluates to 6. It now follows that the output of the previous statement is: Num = 6 The last statement, that is, <b>return 0;</b> returns the value 0 to the operating system when the program terminates. We will elaborate on this statement later in this chapter.'
+            'Therefore, the expression num, after the second <<, evaluates to 6. It now follows that the output of the previous statement is: Num = 6 The last statement, that is, <b>return 0;</b> returns the value 0 to the operating system when the program terminates. We will elaborate on this statement later in this chapter.' +
+            '<br/><br/><br/>  <img class="exampleOne" src="../assets/images/content/example_two.PNG" alt="Main page image" height="150px" width="850px">'
         },
 
     ];

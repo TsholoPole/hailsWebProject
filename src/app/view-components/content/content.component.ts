@@ -5,6 +5,8 @@ import { ContentProviderService } from '../../services/content-services/content-
 import { ProvideContentRequest } from '../../models/request.models/provideContentRequest.model';
 import { Response } from '@angular/http';
 import { ChapterOneSectionContentProviderService } from './chapter-one-section-provider.service';
+import { Subscription } from 'rxjs';
+import { ActiveSectionService } from '../side-panel-menu/services/active-section.service';
 
 @Component({
   selector: 'app-content',
@@ -20,24 +22,22 @@ export class ContentComponent implements OnInit {
   subHeading = '';
   sectionContent  = '';
 
-
   // viewContentFromServer : ContentModel[];
 
   resultListLength = 0;
 
   constructor(private headerUsernameService: HeaderUsernameService,
-    private chapterOneSectionContentProviderService: ChapterOneSectionContentProviderService) { }
+    private chapterOneSectionContentProviderService: ChapterOneSectionContentProviderService,
+    private activeSectionService: ActiveSectionService) { }
 
   ngOnInit() {
+
     this.chapterOneSectionContentProviderService.getChapterOneContent().subscribe(
       content => {
-        // console.log("\n\nContent from db",content,"\n\n");
         this.chapterOneSectionOneContent = content;
-        // console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
       }
     );
 
-    // this.
     setTimeout(() => {
       this.populateContent();
     }, 2000);
@@ -46,6 +46,8 @@ export class ContentComponent implements OnInit {
 
 
   createContentForDisplay(chap: number, section: number) {
+    this.activeSectionService.determineActiveSection(section);
+
     console.log("Chap: ", chap, "Section: ",section);
    switch (chap) {
     case 1:
@@ -122,6 +124,8 @@ export class ContentComponent implements OnInit {
   }
 
   displayCurrentContent(currentContentModel: ContentModel) {
+    this.activeSectionService.determineActiveSection(currentContentModel.sectionIdentifier);
+
     console.log("\n\nCurrent content",currentContentModel,"\n\n");
     // map current content to the view
     this.headerUsernameService.changeHeaderSection(currentContentModel.mainHeading);
@@ -139,6 +143,7 @@ export class ContentComponent implements OnInit {
     } else {
       // add code to send new request to get next section content
       alert('End of list');
+      this.chapterOneSectionOneContent = [];
       this.getChapterOneSectionTwoData();
       // this.displayCurrentContent(this.chapterOneSectionOneContent[this.index]);
     }

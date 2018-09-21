@@ -2,12 +2,12 @@
     margin-top: 10px;
     background-color: rgba(117, 126, 155, 0.24);
     align-content: center;
-    height: 15vh;
+    height: 11vh;
 }
 
 .contentBody {
     background-color: rgba(243, 242, 242, 0.281);
-    height: 50vh;
+    height: 65vh;
 }
 
 .contentFooter {

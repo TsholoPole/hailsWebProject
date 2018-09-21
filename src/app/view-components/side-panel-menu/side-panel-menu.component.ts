@@ -4,6 +4,7 @@ import { ContentModel } from '../../models/content.models/content.model';
 import { ContentProviderMapper } from '../../services/content-services/content-provider-apper.service';
 import { ProvideContentRequest } from '../../models/request.models/provideContentRequest.model';
 import { ContentComponent } from '../content/content.component';
+import { ActiveSectionService } from './services/active-section.service';
 
 @Component({
   selector: 'app-side-panel-menu',
@@ -19,27 +20,28 @@ export class SidePanelMenuComponentComponent implements OnInit {
   glossary = 'Glossary';
 
   chapterList = [{name: this.chapterOne},
-{name: this.chapterTwo}, {name: this.chapterThree},
-{name: this.glossary}];
-
-// selected = false;
+    {name: this.chapterTwo}, {name: this.chapterThree},
+    {name: this.glossary}];
 
 chapterOneSections = [{name: 'A C++ Program', value: 1}, {name: 'The Basics of a C++ Program', value: 2}, {name: 'Identifiers', value: 3}];
 chapterTwoSections = [{name: 'Introduction', value: 1}, {name: 'Simple Data Types', value: 2}, {name: 'Floating Point Data Types', value: 3} ];
 
 chapterThreeSections = [{name: 'Arithmetic Operators'}, {name: 'Examples'}, {name: 'Order of Precedence'}];
+activeSectionId : number;
 
-  constructor(private router: Router, private contentComponent: ContentComponent) { }
+  constructor(private router: Router, private contentComponent: ContentComponent,
+    private activeSectionService: ActiveSectionService) { }
 
   ngOnInit() {
+    this.activeSectionId = this.activeSectionService.returnActiveSection();
   }
 
   activeSection(selected: any) {
 
     const tempIndex = selected + 1;
+    this.activeSectionId = this.activeSectionService.returnActiveSection();
 
     alert('Clicked: ' + selected);
-    // this.selected = true;
 
     this.contentComponent.createContentForDisplay(1, (tempIndex));
     // setTimeout(() => {
@@ -47,33 +49,27 @@ chapterThreeSections = [{name: 'Arithmetic Operators'}, {name: 'Examples'}, {nam
     // }, 1500);
     alert('Go to chapter 1');
 
-    // this.router.navigate(['/content']);
   }
 
   activeSectionTwo(selected: any) {
     this.selectedIndex = selected;
+    this.activeSectionId = this.activeSectionService.returnActiveSection();
 
     alert('Clikced: ' + selected+1);
-    // this.selected = true;
     this.contentComponent.createContentForDisplay(1, (selected + 1));
     // setTimeout(() => {
       this.router.navigate(['/content']);
     // }, 1500);
     alert('Go to chapter 2');
-    // this.router.navigate(['/content']);
   }
 
   activeSectionThree(selected: any)  {
     this.selectedIndex = selected;
+    this.activeSectionId = this.activeSectionService.returnActiveSection();
 
     alert('Clikced: ' + selected);
-    // this.selected = true;
 
     this.router.navigate(['/content']);
-  }
-
-  activeChapter() {
-
   }
 
 }

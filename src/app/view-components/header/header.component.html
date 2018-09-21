@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row header">
         <div class="col-sm-4 col-md-3 col-lg-4">
-            <img src="../assets/images/logo.png" class="logo-image noselect">
+            <img src="../assets/images/logo.png" class="logo-image noselect" (click)="onLogout()">
             <!-- <img src="./assets/images/title_logo_small.png" class="logo-image-title noselect"> -->
         </div>
         <div class="col-sm-5 col-md-7 col-lg-5 no-padding">
@@ -9,8 +9,8 @@
             <div class="header-title noselect">{{currentMainHeading}}</div>
         </div>
         <div class="col-sm-1 col-md-1 col-lg-1 no-padding">
-            <div class="header-text-username noselect" #loggedInUser>User:
-                <span class="header-username">{{username}}</span>
+            <div class="header-text-username noselect">
+              <!-- User:<span class="header-username">{{username}}</span> -->
             </div>
         </div>
         <div class="col-sm-2 col-md-2 col-lg-2">

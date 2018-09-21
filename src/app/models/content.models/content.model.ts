@@ -1,12 +1,12 @@
 export class ContentModel
 {
     description : string;
-    sectionIdentifier: Number;
-    chapterIdentifier: Number;
+    sectionIdentifier: number;
+    chapterIdentifier: number;
     mainHeading: string;
     subHeading: string;
 
-    set setChapterId(_chapId: Number)
+    set setChapterId(_chapId: number)
     {
         this.chapterIdentifier = _chapId;
     }
@@ -15,7 +15,7 @@ export class ContentModel
     {
         return this.chapterIdentifier;
     }
-    
+
     set setMainHeading(_mainHeading: string)
     {
         this.mainHeading = _mainHeading;
@@ -46,7 +46,7 @@ export class ContentModel
         return this.description;
     }
 
-    set setSectionIdentifier(_id: Number)
+    set setSectionIdentifier(_id: number)
     {
         this.sectionIdentifier = _id;
     }
