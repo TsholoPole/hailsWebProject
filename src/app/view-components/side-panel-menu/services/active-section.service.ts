@@ -6,7 +6,7 @@ export class ActiveSectionService {
   activeSection : number = null;
   determineActiveSection(section:number){
     console.log("\n\nActive Section: ", section,"\n\n")
-    this.activeSection = section;
+    this.activeSection = section-1;
     // return section-1;
   }
 

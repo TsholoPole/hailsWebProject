@@ -25,6 +25,8 @@ import { ChapterOneSectionContentProviderService } from './view-components/conte
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { ActiveSectionService } from './view-components/side-panel-menu/services/active-section.service';
+import { ChapterTwoSectionOneService } from './view-components/content/chapter-two-content/chapter-two-section-one-data.service';
+import { ChapterTwoSectionContentProviderService } from './view-components/content/chapter-two-content/chapter-two-section-provider.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +47,9 @@ import { ActiveSectionService } from './view-components/side-panel-menu/services
     HttpClientInMemoryWebApiModule.forRoot(
       ChapterOneSectionOneService, { dataEncapsulation: false }
     ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //    ChapterTwoSectionOneService, { dataEncapsulation: false }
+    // ),
     // InMemoryWebApiModule.forRoot(ChapterOneSectionOneService,),
     BrowserModule,
     FormsModule,
@@ -57,7 +62,8 @@ import { ActiveSectionService } from './view-components/side-panel-menu/services
     ContentComponent,
     ContentProviderService,
     ChapterOneSectionContentProviderService,
-    ActiveSectionService
+    ActiveSectionService,
+    ChapterTwoSectionContentProviderService
   ],
   bootstrap: [AppComponent]
 })

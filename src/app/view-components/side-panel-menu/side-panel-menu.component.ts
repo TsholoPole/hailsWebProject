@@ -52,11 +52,12 @@ activeSectionId : number;
   }
 
   activeSectionTwo(selected: any) {
-    this.selectedIndex = selected;
+    // this.selectedIndex = selected+1;
+    const tempIndex = selected + 1;
     this.activeSectionId = this.activeSectionService.returnActiveSection();
 
-    alert('Clikced: ' + selected+1);
-    this.contentComponent.createContentForDisplay(1, (selected + 1));
+    alert('Clicked: ' + tempIndex);
+    this.contentComponent.createContentForDisplay(2, tempIndex);
     // setTimeout(() => {
       this.router.navigate(['/content']);
     // }, 1500);
@@ -64,10 +65,12 @@ activeSectionId : number;
   }
 
   activeSectionThree(selected: any)  {
-    this.selectedIndex = selected;
+    // this.selectedIndex = selected;
+    const tempIndex = selected + 1;
     this.activeSectionId = this.activeSectionService.returnActiveSection();
 
-    alert('Clikced: ' + selected);
+    alert('Clikced: ' + tempIndex);
+    this.contentComponent.createContentForDisplay(3, tempIndex);
 
     this.router.navigate(['/content']);
   }

@@ -5,8 +5,8 @@
             <!-- <li class="list-group-item chapter" (click)="activeChapter()" *ngFor="let chapter of chapterList">{{chapter.name}} -->
             <li class="list-group-item chapter">{{chapterOne}}</li>
             <ul class="list-group">
-                <li id="section" class="list-group-item sectionOne" (click)="activeSection(i)"
-                 *ngFor="let section of chapterOneSections; let i = index"
+                <li id="section" class="list-group-item sectionOne"
+                 *ngFor="let section of chapterOneSections; let i = index" (click)="activeSection(i)"
                  [ngClass]="{'itemSelected': i === activeSectionId}">{{section.name}}
                     <hr class="division">
                 </li>

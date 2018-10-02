@@ -7,6 +7,7 @@ import { Response } from '@angular/http';
 import { ChapterOneSectionContentProviderService } from './chapter-one-section-provider.service';
 import { Subscription } from 'rxjs';
 import { ActiveSectionService } from '../side-panel-menu/services/active-section.service';
+import { ChapterTwoSectionContentProviderService } from './chapter-two-content/chapter-two-section-provider.service';
 
 @Component({
   selector: 'app-content',
@@ -21,6 +22,7 @@ export class ContentComponent implements OnInit {
   index = 0;
   subHeading = '';
   sectionContent  = '';
+  loadedContent = false;
 
   // viewContentFromServer : ContentModel[];
 
@@ -28,7 +30,8 @@ export class ContentComponent implements OnInit {
 
   constructor(private headerUsernameService: HeaderUsernameService,
     private chapterOneSectionContentProviderService: ChapterOneSectionContentProviderService,
-    private activeSectionService: ActiveSectionService) { }
+    private activeSectionService: ActiveSectionService,
+    private chapterTwoSectionContentProviderService : ChapterTwoSectionContentProviderService) { }
 
   ngOnInit() {
 
@@ -54,12 +57,12 @@ export class ContentComponent implements OnInit {
     console.log("\n\nChapter is 1\n\n")
       switch (section) {
         case 1:
-        console.log("\n\nSection is 1\n\n")
+        // console.log("\n\nSection is 1\n\n")
         this.chapterOneSectionContentProviderService.getChapterOneContent().subscribe(
           content => {
-            console.log("\n\nContent from chap 1, section 1", content,"\n\n")
+            // console.log("\n\nContent from chap 1, section 1", content,"\n\n")
             this.chapterOneSectionOneContent = content;
-            console.log("\n\nContent after switch statement one",  this.chapterOneSectionOneContent,"\n\n")
+            // console.log("\n\nContent after switch statement one",  this.chapterOneSectionOneContent,"\n\n")
 
           }
         );
@@ -83,13 +86,28 @@ export class ContentComponent implements OnInit {
     case 2:
       switch (section) {
         case 1:
+          this.chapterTwoSectionContentProviderService.getChapterTwoContent().subscribe(
+            content => {
+              this.chapterOneSectionOneContent = content;
+            }
+          );
         break;
 
         case 2:
+          this.chapterTwoSectionContentProviderService.getChapterTwoSectionTwoContent().subscribe(
+            content => {
+              this.chapterOneSectionOneContent = content;
+            }
+          );
         break;
 
         case 3:
-      }
+          this.chapterTwoSectionContentProviderService.getChapterTwoSectionThreeContent().subscribe(
+            content => {
+              this.chapterOneSectionOneContent = content;
+            }
+            );
+          }
 
       break;
     case 3:
@@ -152,9 +170,7 @@ export class ContentComponent implements OnInit {
   getChapterOneSectionTwoData() {
     this.chapterOneSectionContentProviderService.getChapterOneSectionTwoContent().subscribe(
       content => {
-        // console.log("\n\nContent from db",content,"\n\n");
         this.chapterOneSectionOneContent = content;
-        // console.log("\n\nContent from chapter one",this.chapterOneSectionOneContent,"\n\n");
       }
     );
     this.populateContent();
