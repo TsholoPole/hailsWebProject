@@ -14,14 +14,15 @@ import { ActiveSectionService } from './services/active-section.service';
 export class SidePanelMenuComponentComponent implements OnInit {
 
   selectedIndex: number;
-  chapterOne = 'Chapter 1: BASIC ELEMENTS OF C++';
-  chapterTwo = 'Chapter 2: Data Types';
-  chapterThree = 'Chapter 3: Arithmetic Operators and Operator Precedence';
-  glossary = 'Glossary';
+  chapterOne = 'Basic Elements Of C++';
+  chapterTwo = 'Data Types';
+  chapterThree = 'Arithmetic Operators and Operator Precedence';
+  // glossary = 'Glossary';
 
   chapterList = [{name: this.chapterOne},
     {name: this.chapterTwo}, {name: this.chapterThree},
-    {name: this.glossary}];
+    // {name: this.glossary}
+  ];
 
 chapterOneSections = [{name: 'A C++ Program', value: 1}, {name: 'The Basics of a C++ Program', value: 2}, {name: 'Identifiers', value: 3}];
 chapterTwoSections = [{name: 'Introduction', value: 1}, {name: 'Simple Data Types', value: 2}, {name: 'Floating Point Data Types', value: 3} ];
@@ -34,6 +35,23 @@ activeSectionId : number;
 
   ngOnInit() {
     this.activeSectionId = this.activeSectionService.returnActiveSection();
+  }
+
+  getChapterContent(chapter: any)
+  {
+    switch(chapter)
+    {
+      case 1:
+          this.contentComponent.createContentForDisplay(1, 1);
+        break;
+      case 2:
+          this.contentComponent.createContentForDisplay(2, 1);
+        break;
+      case 3:
+          this.contentComponent.createContentForDisplay(3, 1);
+        break;
+      default:
+    }
   }
 
   activeSection(selected: any) {

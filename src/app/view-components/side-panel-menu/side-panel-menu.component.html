@@ -3,7 +3,7 @@
 
         <ul class="list-group">
             <!-- <li class="list-group-item chapter" (click)="activeChapter()" *ngFor="let chapter of chapterList">{{chapter.name}} -->
-            <li class="list-group-item chapter">{{chapterOne}}</li>
+            <li class="list-group-item chapter" (click)="getChapterContent(1)">{{chapterOne}}</li>
             <ul class="list-group">
                 <li id="section" class="list-group-item sectionOne"
                  *ngFor="let section of chapterOneSections; let i = index" (click)="activeSection(i)"
@@ -12,7 +12,7 @@
                 </li>
             </ul>
             <!-- </li> -->
-            <li class="list-group-item chapter">{{chapterTwo}}</li>
+            <li class="list-group-item chapter" (click)="getChapterContent(2)">{{chapterTwo}}</li>
             <ul class="list-group">
                 <li id="section" class="list-group-item sectionTwo" (click)="activeSectionTwo(i)"
                 *ngFor="let section of chapterTwoSections;  let i = index">
@@ -22,7 +22,7 @@
                 </li>
 
             </ul>
-            <li class="list-group-item chapter">{{chapterThree}}</li>
+            <li class="list-group-item chapter" (click)="getChapterContent(3)">{{chapterThree}}</li>
             <ul class="list-group">
                 <li id="section" class="list-group-item sectionThree" (click)="activeSectionThree(i)"
                  *ngFor="let section of chapterThreeSections;  let i = index">
@@ -31,7 +31,7 @@
                     <hr class="division">
                 </li>
             </ul>
-            <li class="list-group-item chapter">{{glossary}}</li>
+            <!-- <li class="list-group-item chapter">{{glossary}}</li> -->
         </ul>
     </div>
 
