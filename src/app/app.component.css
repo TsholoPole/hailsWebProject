@@ -1,0 +1,56 @@
+.suggestion{
+  /* z-index: 1; */
+  z-index: 1000;
+  width: 300px;
+  height: 50%;
+  /* background-color: rgba(235, 235, 235, 0.95); */
+  /* border-left: 2px solid grey; */
+  position: absolute;
+  left: 80%;
+  bottom: 10%;
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
+
+}
+
+.suggestion_div{
+  background-color: rgba(235, 235, 235, 0.95);
+  border-left: 2px solid grey;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 80px;
+}
+
+.suggestionContent{
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding-top: 5%;
+  font-size: 20px;
+}
+
+.suggestion_div:hover {
+  cursor: pointer;
+  background-color: rgba(172, 170, 170, 0.95);
+}
+
+.show-suggestion {
+  animation-name: slide-in;
+  animation-duration: 3s;
+}
+
+.hide-suggestion {
+  animation-name: slide-out;
+  animation-duration: 3s;
+}
+
+@keyframes slide-in {
+  0% {left: 120%}
+  100% {left: 80%}
+}
+
+@keyframes slide-out {
+  0% {left: 80%}
+  100% {left: 120%}
+}

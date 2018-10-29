@@ -1,6 +1,12 @@
 <div class="container-fluid">
-    <!-- <app-header></app-header> -->
+  <!-- <app-header></app-header> -->
 </div>
-<script src="readFile.js" type="text/javascript"></script>
+
+<div class="suggestion" [ngClass]="{'show-suggestion': showSuggestions}"
+[ngClass]="{'hide-suggestion' : !showSuggestions}">
+  <div *ngFor="let content of fileData" class="suggestion_div">
+    <p *ngIf="content != null" class="suggestionContent">{{content.name}}</p>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
